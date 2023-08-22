@@ -1,8 +1,5 @@
 body {
   background-color: #fafafa;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
   margin: 0;
   transition: background 0.2s linear;
@@ -12,16 +9,8 @@ body.dark {
   background: #292c35;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* Alteração: Alinhamento ao topo */
-  height: 100vh;
-}
-
 .header-container {
-  display: flex;
+  display: flexbox;
   align-items: center;
   justify-content: center;
   position: fixed;
@@ -29,10 +18,6 @@ body.dark {
   left: 0;
   right: 0;
   padding: 10px;
-}
-
-.nav {
-  width: 100%;
 }
 
 .logo {
@@ -72,6 +57,7 @@ body.dark {
   width: 22px;
   transform: scale(1);
   margin-right: 10px;
+  margin-top: -80px;
 }
 
 .label .ball {
@@ -86,57 +72,137 @@ body.dark {
   transition: transform 0.1s linear;
 }
 
-.checkbox:checked + .label .ball {
+.checkbox:checked+.label .ball {
   transform: translateX(12px);
 }
 
-#search {
+/**/
+
+.search {
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 1px 1px #000000;
-  border-radius: 25px;
-  padding: 5px 10px;
-  transition: background 0.2s linear, border 0.2s linear, box-shadow 0.2s linear;
-  margin-left: 100px;
-  margin-top: 100px;
+  justify-content: center;
+  position: fixed;
+  margin-left: 50%;
+  margin-top: 25px;
+  transform: translate(-50%, -50%);
 }
 
-#search:hover {
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+.search input {
+  width: 350px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  transition: border-color 0.3s, padding 0.3s;
 }
 
-#search:focus {
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 3px 3px #0051ff;
-  border-radius: 25px;
+.search input:hover {
+  border: 2px solid red;
+  padding: 8px;
 }
 
-body.dark #search {
+.search input::placeholder {
+  text-align: center;
+  font-size: 15px;
+}
+
+.search button {
+  height: 28px;
+  width: 40px;
+}
+
+.search button:hover {
+  background-color: grey;
+}
+
+/**/
+
+body.dark .search input {
+  border: 1px solid white;
+}
+
+body.dark .search input:hover {
+  border: 2px solid red;
+}
+
+/**/
+
+.resultado {
+  width: 300px;
+  display: none;
+  border: 1px dotted #FFF;
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.titulo {
+  width: 100%;
+  color: #FFF;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+}
+
+.info {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 1px 1px black;
-  border-radius: 25px;
-  padding: 5px 10px;
-  transition: background 0.2s linear, border 0.2s linear, box-shadow 0.2s linear;
-  margin-top: -200px;
+  width: 100%;
 }
 
-body.dark #search:hover {
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 2px 2px white;
+.info .temp {
+  flex: 1;
+  text-align: center;
 }
 
-body.dark #search:focus {
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 3px 3px #0051ff;
-  border-radius: 25px;
+.info .vento {
+  flex: 1;
+  text-align: center;
+}
+
+.tempTitulo,
+.ventoTitulo {
+  color: #777;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.tempInfo,
+.ventoInfo {
+  color: #FFF;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.tempInfo sup {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.ventoInfo span {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.ventoArea {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #FFF;
+  border-radius: 50%;
+  margin: auto;
+  margin-top: 20px;
+  padding-left: 25px;
+  padding-top: 25px;
+}
+
+.ventoPonto {
+  width: 15px;
+  height: 1px;
+  background-color: #FFF;
+  transform-origin: left;
+}
+
+.aviso {
+  color: #FFF;
+  padding-top: 20px;
 }
